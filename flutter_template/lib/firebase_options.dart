@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -25,7 +28,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,16 +49,6 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBKYop_ROqTyG5ssbxW5KN_0AJpmtTQxPQ',
-    appId: '1:169553709276:web:6f860ee5ff9d87ba528c19',
-    messagingSenderId: '169553709276',
-    projectId: 'flutter-template-96295',
-    authDomain: 'flutter-template-96295.firebaseapp.com',
-    storageBucket: 'flutter-template-96295.appspot.com',
-    measurementId: 'G-M3N6EYGBFV',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyA7O_4n9c-YpUdYWW88Q_t9UNsAd91tzZE',
     appId: '1:169553709276:android:374693f62fc6704c528c19',
@@ -68,14 +64,5 @@ class DefaultFirebaseOptions {
     projectId: 'flutter-template-96295',
     storageBucket: 'flutter-template-96295.appspot.com',
     iosBundleId: 'com.example.flutterTemplate',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBcv5ZMDtr53uvvP9GKJUcbVk25-3H_4DU',
-    appId: '1:169553709276:ios:cebca2dddcb3a2d3528c19',
-    messagingSenderId: '169553709276',
-    projectId: 'flutter-template-96295',
-    storageBucket: 'flutter-template-96295.appspot.com',
-    iosBundleId: 'com.example.flutterTemplate.RunnerTests',
   );
 }
