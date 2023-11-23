@@ -39,6 +39,8 @@ dependencies:
   cloud_firestore: ^4.13.1
   firebase_auth: ^4.14.0
   sign_in_button: ^3.2.0
+  flutter_stripe: ^9.5.0+1
+  http: ^0.13.3
 
 dev_dependencies:
   flutter_test:
